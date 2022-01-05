@@ -1,0 +1,5 @@
+repository:
+  name: "renovate-config"
+  description: "Config Repository for Renovate"
+  homepage: "https://rwxd.github.io/renovate-config/"
+  topics: "renovate, template"
