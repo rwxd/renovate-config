@@ -1,10 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":dependencyDashboard"],
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "reviewers": [],
+  "pip_requirements": {
+    "fileMatch": ["(^|/)([\\w-]*)requirements\\.(txt|pip)$", "(^|/)([\\w-]*)requirements-dev\\.(txt|pip)$"]
+  },
   "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
+    { "packagePatterns": [".*"], "semanticCommitType": "fix" },
+    { "matchUpdateTypes": ["patch", "pin", "digest"], "automerge": true },
+    { "matchDatasources": ["pip"], "matchFiles": ["requirements-dev.txt"], "semanticCommitType": "chore" },
+    { "matchDatasources": ["pip"], "matchUpdateTypes": ["minor", "patch", "pin", "digest"], "automerge": true },
+    { "matchPackageNames": ["ansible"], "groupName": "ansible", "automerge": false }
   ]
 }
