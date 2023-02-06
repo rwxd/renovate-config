@@ -7,7 +7,54 @@
   },
   "packageRules": [
     { "packagePatterns": [".*"], "semanticCommitType": "fix" },
-    { "matchDatasources": ["pip"], "matchFiles": ["requirements-dev.txt"], "semanticCommitType": "chore" },
-    { "matchPackageNames": ["ansible"], "groupName": "ansible", "automerge": false }
+    { "matchPackageNames": ["ansible"], "groupName": "ansible", "automerge": false },
+	{
+		"matchDatasources": [
+			"pypi"
+		],
+		"matchFiles": [
+			"requirements-dev.txt"
+		],
+		"semanticCommitType": "chore"
+	},
+	{
+		"matchDatasources": [
+			"pypi"
+		],
+		"matchPackageNames": [
+			"pre-commit",
+			"flake8",
+			"pylint",
+			"mypy",
+			"pytest",
+			"pytest-cov",
+			"black"
+		],
+		"groupName": "python-dev-deps",
+		"matchUpdateTypes": [
+			"minor",
+			"patch",
+			"pin",
+			"digest"
+		],
+		"automerge": true,
+		"semanticCommitType": "chore"
+	},
+	{
+		"matchManagers": [
+			"pre-commit"
+		],
+		"matchPackageNames": [
+			"hadolint/hadolint",
+			"asottile/pyupgrade",
+			"pre-commit/pre-commit-hooks",
+			"pre-commit/mirrors-mypy",
+			"PyCQA/flake8",
+			"pycqa/isort"
+		],
+		"automerge": true,
+		"semanticCommitType": "chore",
+		"groupName": "pre-commit-hooks"
+	}
   ]
 }
