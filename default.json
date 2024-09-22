@@ -1,60 +1,61 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":disableDependencyDashboard"],
-  "reviewers": [],
-  "pip_requirements": {
-    "fileMatch": ["(^|/)([\\w-]*)requirements\\.(txt|pip)$", "(^|/)([\\w-]*)requirements-dev\\.(txt|pip)$"]
+  "$schema":"https://docs.renovatebot.com/renovate-schema.json",
+  "extends":[
+    "config:base",
+    ":disableDependencyDashboard"
+  ],
+  "reviewers":[
+    
+  ],
+  "pip_requirements":{
+    "fileMatch":[
+      "(^|/)([\\w-]*)requirements\\.(txt|pip)$",
+      "(^|/)([\\w-]*)requirements-dev\\.(txt|pip)$"
+    ]
   },
-  "packageRules": [
-    { "packagePatterns": [".*"], "semanticCommitType": "fix" },
-    { "matchPackageNames": ["ansible"], "groupName": "ansible", "automerge": false },
-	{
-		"matchDatasources": [
-			"pypi"
-		],
-		"matchFiles": [
-			"requirements-dev.txt"
-		],
-		"semanticCommitType": "chore"
-	},
-	{
-		"matchDatasources": [
-			"pypi"
-		],
-		"matchPackageNames": [
-			"pre-commit",
-			"flake8",
-			"pylint",
-			"mypy",
-			"pytest",
-			"pytest-cov",
-			"black"
-		],
-		"groupName": "python-dev-deps",
-		"matchUpdateTypes": [
-			"minor",
-			"patch",
-			"pin",
-			"digest"
-		],
-		"automerge": true,
-		"semanticCommitType": "chore"
-	},
-	{
-		"matchManagers": [
-			"pre-commit"
-		],
-		"matchPackageNames": [
-			"hadolint/hadolint",
-			"asottile/pyupgrade",
-			"pre-commit/pre-commit-hooks",
-			"pre-commit/mirrors-mypy",
-			"PyCQA/flake8",
-			"pycqa/isort"
-		],
-		"automerge": true,
-		"semanticCommitType": "chore",
-		"groupName": "pre-commit-hooks"
-	}
+  "packageRules":[
+    {
+      "groupName":"all non-major dependencies",
+      "groupSlug":"all",
+      "lockFileMaintenance":{
+        "enabled":true
+      },
+      "packageRules":[
+        {
+          "groupName":"all non-major dependencies",
+          "groupSlug":"all-minor-patch",
+          "semanticCommitType":"fix",
+          "matchPackageNames":[
+            "*"
+          ],
+          "matchUpdateTypes":[
+            "minor",
+            "patch"
+          ]
+        }
+      ],
+      "separateMajorMinor":false
+    },
+    {
+      "groupName":"all major dependencies",
+      "groupSlug":"all",
+      "lockFileMaintenance":{
+        "enabled":true
+      },
+      "packageRules":[
+        {
+          "groupName":"all major dependencies",
+          "groupSlug":"all-major-patch",
+          "semanticCommitType":"fix",
+          "matchPackageNames":[
+            "*"
+          ],
+          "matchUpdateTypes":[
+            "major"
+          ]
+        }
+      ],
+      "separateMajorMinor":false
+    }
   ]
 }
