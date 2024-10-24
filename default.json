@@ -4,9 +4,7 @@
   "extends":[
     ":disableDependencyDashboard"
   ],
-  "reviewers":[
-    "rwxd"
-  ],
+  "reviewers":[],
   "pip_requirements":{
     "fileMatch":[
       "(^|/)([\\w-]*)requirements\\.(txt|pip)$",
