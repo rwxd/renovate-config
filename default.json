@@ -11,6 +11,9 @@
       "(^|/)([\\w-]*)requirements-dev\\.(txt|pip)$"
     ]
   },
+  "nix": {
+    "enabled": true
+  },
   "packageRules":[
     {
       "groupName":"all non-major dependencies",
