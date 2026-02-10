@@ -4,6 +4,8 @@
     "extends": [
         ":disableDependencyDashboard"
     ],
+    "schedule": ["on monday"],
+    "minimumReleaseAge": "14 days",
     "reviewers": [],
     "pip_requirements": {
         "fileMatch": [
