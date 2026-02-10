@@ -8,6 +8,8 @@
         "on monday"
     ],
     "minimumReleaseAge": "14 days",
+    "prCreation": "not-pending",
+    "internalChecksFilter": "strict",
     "reviewers": [],
     "pip_requirements": {
         "fileMatch": [
