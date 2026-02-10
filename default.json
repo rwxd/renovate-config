@@ -2,9 +2,12 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "configMigration": true,
     "extends": [
+        "config:best-practices",
         ":disableDependencyDashboard"
     ],
-    "schedule": ["on monday"],
+    "schedule": [
+        "on monday"
+    ],
     "minimumReleaseAge": "14 days",
     "reviewers": [],
     "pip_requirements": {
