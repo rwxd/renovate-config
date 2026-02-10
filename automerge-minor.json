@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "automerge minor dependencies",
+      "groupSlug": "automerge-minor-updates",
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ]
+}
