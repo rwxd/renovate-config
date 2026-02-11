@@ -36,7 +36,9 @@
                     ],
                     "matchUpdateTypes": [
                         "minor",
-                        "patch"
+                        "patch",
+                        "digest",
+                        "pin"
                     ]
                 }
             ],
