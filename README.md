@@ -46,6 +46,12 @@ Located in `groups/` directory. Groups multiple updates into a single PR.
 - **`groups/minor`**: Groups all minor updates
 - **`groups/patch`**: Groups all patch, pin, and digest updates
 
+### Schedule
+
+Located in `schedule/` directory. Controls when Renovate runs.
+
+- **`schedule/weekly`**: Runs on Mondays
+
 ## Custom Configuration
 
 Mix and match presets to fit your workflow:

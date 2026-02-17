@@ -4,9 +4,6 @@
     "extends": [
         "config:best-practices"
     ],
-    "schedule": [
-        "on monday"
-    ],
     "minimumReleaseAge": "14 days",
     "prCreation": "not-pending",
     "internalChecksFilter": "strict",
