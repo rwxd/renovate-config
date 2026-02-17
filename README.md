@@ -32,6 +32,7 @@ Automerges patch and minor updates silently, groups major updates into PRs:
 
 Located in `automerge/` directory. All use `automergeType: branch` for silent merges without PR notifications.
 
+- **`automerge/all`**: Automerges all updates (major, minor, patch, pin, digest)
 - **`automerge/major`**: Automerges major version updates
 - **`automerge/minor`**: Automerges minor version updates
 - **`automerge/patch`**: Automerges patch updates
@@ -42,6 +43,7 @@ Located in `automerge/` directory. All use `automergeType: branch` for silent me
 
 Located in `groups/` directory. Groups multiple updates into a single PR.
 
+- **`groups/all`**: Groups all updates (major, minor, patch, pin, digest)
 - **`groups/major`**: Groups all major updates
 - **`groups/minor`**: Groups all minor updates
 - **`groups/patch`**: Groups all patch, pin, and digest updates
