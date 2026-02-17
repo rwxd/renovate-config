@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor dependencies",
+      "groupSlug": "all-minor-updates"
+    }
+  ]
+}

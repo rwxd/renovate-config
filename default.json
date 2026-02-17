@@ -20,50 +20,5 @@
     "nix": {
         "enabled": true
     },
-    "packageRules": [
-        {
-            "groupName": "all non-major dependencies",
-            "groupSlug": "all-non-major-updates",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
-            "packageRules": [
-                {
-                    "groupName": "all non-major dependencies",
-                    "groupSlug": "all-non-major-updates",
-                    "matchPackageNames": [
-                        "*"
-                    ],
-                    "matchUpdateTypes": [
-                        "minor",
-                        "patch",
-                        "digest",
-                        "pin"
-                    ]
-                }
-            ],
-            "separateMajorMinor": false
-        },
-        {
-            "groupName": "all major dependencies",
-            "groupSlug": "all-major-updates",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
-            "packageRules": [
-                {
-                    "groupName": "all major dependencies",
-                    "groupSlug": "all-major-updates",
-                    "semanticCommitType": "fix",
-                    "matchPackageNames": [
-                        "*"
-                    ],
-                    "matchUpdateTypes": [
-                        "major"
-                    ]
-                }
-            ],
-            "separateMajorMinor": false
-        }
-    ]
+    "packageRules": []
 }

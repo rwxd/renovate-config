@@ -1,34 +1,63 @@
 # Renovate Config
 
-The shared configuration can be used with following content in the `renovate.json`:
+Shared Renovate configuration presets for consistent dependency management.
+
+## Basic Configurations
+
+### Default Configuration
+
+Basic setup with best practices - creates grouped PRs for updates:
 
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>rwxd/renovate-config"]
+  "extends": ["https://git.chaops.de/rwxd/renovate-config/raw/branch/main/default.json"]
 }
 ```
 
-## Automerge Presets
+### Standard Configuration (Recommended)
 
-- **`automerge-patch.json`**: Automerges patch updates, pins (range → exact version), and digest updates (SHA hash updates)
-- **`automerge-minor.json`**: Automerges minor version updates
-- **`automerge-major.json`**: Automerges major version updates
+Automerges patch and minor updates silently, groups major updates into PRs:
 
-All use `automergeType: branch` for silent merges without PR notifications.
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["https://git.chaops.de/rwxd/renovate-config/raw/branch/main/standard.json"]
+}
+```
 
-### Usage
+## Presets
 
-Include the presets you want to enable:
+### Automerge
+
+Located in `automerge/` directory. All use `automergeType: branch` for silent merges without PR notifications.
+
+- **`automerge/major`**: Automerges major version updates
+- **`automerge/minor`**: Automerges minor version updates
+- **`automerge/patch`**: Automerges patch updates
+- **`automerge/pin`**: Automerges pin updates (range → exact version)
+- **`automerge/digest`**: Automerges digest updates (SHA hash updates)
+
+### Groups
+
+Located in `groups/` directory. Groups multiple updates into a single PR.
+
+- **`groups/major`**: Groups all major updates
+- **`groups/minor`**: Groups all minor updates
+- **`groups/patch`**: Groups all patch, pin, and digest updates
+
+## Custom Configuration
+
+Mix and match presets to fit your workflow:
 
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>rwxd/renovate-config",
-    "github>rwxd/renovate-config:automerge-patch",
-    "github>rwxd/renovate-config:automerge-minor",
-    "github>rwxd/renovate-config:automerge-major"
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/default.json",
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/patch.json",
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/minor.json",
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/major.json"
   ]
 }
 ```

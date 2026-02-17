@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch-updates"
+    }
+  ]
+}
