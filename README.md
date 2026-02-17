@@ -6,7 +6,7 @@ Shared Renovate configuration presets for consistent dependency management.
 
 ### Default Configuration
 
-Basic setup with best practices - creates grouped PRs for updates:
+Basic setup with best practices:
 
 ```json
 {
