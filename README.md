@@ -17,7 +17,7 @@ Basic setup with best practices:
 
 ### Standard Configuration (Recommended)
 
-Automerges patch and minor updates silently, groups major updates into PRs:
+Automerges patch and minor updates silently. Major updates are not grouped globally, so each major opens as its own MR, with no approval step. No schedule is applied:
 
 ```json
 {
@@ -44,7 +44,7 @@ Located in `automerge/` directory. All use `automergeType: branch` for silent me
 Located in `groups/` directory. Groups multiple updates into a single PR.
 
 - **`groups/all`**: Groups all updates (major, minor, patch, pin, digest)
-- **`groups/major`**: Groups all major updates
+- **`groups/major`**: Groups all major updates into one PR
 - **`groups/minor`**: Groups all minor updates
 - **`groups/patch`**: Groups all patch, pin, and digest updates
 
@@ -64,8 +64,7 @@ Mix and match presets to fit your workflow:
   "extends": [
     "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/default.json",
     "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/patch.json",
-    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/minor.json",
-    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/major.json"
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/minor.json"
   ]
 }
 ```
