@@ -15,7 +15,7 @@ jobs:
           node-version: "25"
 
       - name: Install Renovate
-        run: npm install -g renovate
+        run: npm install -g renovate@44
 
       - name: Validate configs
         run: |
