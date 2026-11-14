@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Group non-major Rust crate updates",
+      "matchManagers": ["cargo"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "rust dependencies",
+      "groupSlug": "rust"
+    },
+    {
+      "description": "Label Rust updates",
+      "matchManagers": ["cargo", "rust-toolchain"],
+      "addLabels": ["rust"]
+    }
+  ]
+}

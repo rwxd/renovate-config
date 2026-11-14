@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "description": "Use fix(...) commits for major dependency updates instead of chore(...)",
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Keep non-production dependency updates as chore(...) so they do not trigger semantic-release releases",
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "matchDepTypes": [
+        "devDependencies",
+        "dev-dependencies",
+        "dev",
+        "dev-packages",
+        "dependency-groups",
+        "tool.uv.dev-dependencies",
+        "tool.pdm.dev-dependencies",
+        "build-dependencies",
+        "setup",
+        "test",
+        "extra",
+        "tool"
+      ],
+      "semanticCommitType": "chore"
+    },
+    {
+      "description": "Keep dev requirement files as chore(...) (pip_requirements has no depType)",
+      "matchManagers": ["pip_requirements", "pip-compile"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "matchFileNames": [
+        "**/*requirements-dev.txt",
+        "**/*requirements_dev.txt",
+        "**/*requirements.dev.txt",
+        "**/dev-requirements.txt",
+        "**/dev_requirements.txt",
+        "**/*requirements-test.txt",
+        "**/*requirements-tests.txt",
+        "**/*requirements-dev.pip",
+        "**/dev-requirements.pip",
+        "**/*requirements-dev.in",
+        "**/*requirements_dev.in",
+        "**/dev-requirements.in"
+      ],
+      "semanticCommitType": "chore"
+    }
+  ]
+}

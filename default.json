@@ -8,14 +8,16 @@
     "prCreation": "not-pending",
     "internalChecksFilter": "strict",
     "reviewers": [],
-    "pip_requirements": {
-        "fileMatch": [
-            "(^|/)([\\w-]*)requirements\\.(txt|pip)$",
-            "(^|/)([\\w-]*)requirements-dev\\.(txt|pip)$"
-        ]
-    },
     "nix": {
         "enabled": true
     },
-    "packageRules": []
+    "packageRules": [
+        {
+            "description": "Skip minimumReleaseAge for lock file maintenance, which has no release timestamps",
+            "matchUpdateTypes": [
+                "lockFileMaintenance"
+            ],
+            "minimumReleaseAge": null
+        }
+    ]
 }

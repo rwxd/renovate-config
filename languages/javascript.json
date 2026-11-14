@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Group non-major JavaScript/TypeScript dependency updates",
+      "matchManagers": ["bun", "deno", "meteor", "npm"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "javascript dependencies",
+      "groupSlug": "javascript"
+    },
+    {
+      "description": "Label JavaScript/TypeScript updates",
+      "matchManagers": ["bun", "bun-version", "deno", "meteor", "nodenv", "npm", "nvm"],
+      "addLabels": ["javascript"]
+    }
+  ]
+}
