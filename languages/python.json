@@ -2,13 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Group non-major Python dependency updates",
-      "matchManagers": ["copier", "homeassistant-manifest", "pep621", "pep723", "pip-compile", "pip_requirements", "pip_setup", "pipenv", "pixi", "poetry", "setup-cfg"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "groupName": "python dependencies",
-      "groupSlug": "python"
-    },
-    {
       "description": "Label Python updates",
       "matchManagers": ["copier", "homeassistant-manifest", "pep621", "pep723", "pip-compile", "pip_requirements", "pip_setup", "pipenv", "pixi", "poetry", "setup-cfg", "pyenv"],
       "addLabels": ["python"]

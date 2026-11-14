@@ -41,7 +41,7 @@ Located in `automerge/` directory. All use `automergeType: branch` for silent me
 
 ### Groups
 
-Located in `groups/` directory. Groups multiple updates into a single PR.
+Located in `groups/` directory. Groups multiple updates into a single PR. These are opt-in and are deliberately not used by `standard.json` or the language presets: with `minimumReleaseAge: "14 days"` and `internalChecksFilter: "strict"`, a group stays unmergeable until every dependency in it has matured, and any new release resets that.
 
 - **`groups/all`**: Groups all updates (major, minor, patch, pin, digest)
 - **`groups/major`**: Groups all major updates into one PR
@@ -68,12 +68,12 @@ These presets are standalone and can be combined directly with `default.json`. E
 
 ### Languages
 
-Located in `languages/` directory. Per-language presets that group non-major updates (plus pin and digest for Python and JavaScript) and add a language label. The Go preset also sets `postUpdateOptions: ["gomodUpdateImportPaths"]` so import paths are updated on major module updates. These groups mix production and dev dependencies, so a group containing production updates gets a `fix` commit and triggers a release; combine with `commits/*` only if that is acceptable.
+Located in `languages/` directory. Per-language presets that add a language label. The Go preset also sets `postUpdateOptions: ["gomodUpdateImportPaths"]` so import paths are updated on major module updates. They deliberately do **not** group updates: with the 14-day `minimumReleaseAge` and strict filtering, grouped PRs stay unmergeable until every dependency has matured.
 
-- **`languages/python`**: Groups non-major Python updates (including pin/digest) and labels them `python`
-- **`languages/go`**: Groups non-major Go module updates, labels them `go`, and updates import paths on major updates
-- **`languages/javascript`**: Groups non-major JavaScript/TypeScript updates (including pin/digest) and labels them `javascript`
-- **`languages/rust`**: Groups non-major Rust crate updates and labels them `rust`
+- **`languages/python`**: Labels Python updates `python`
+- **`languages/go`**: Labels Go module updates `go` and updates import paths on major updates
+- **`languages/javascript`**: Labels JavaScript/TypeScript updates `javascript`
+- **`languages/rust`**: Labels Rust crate updates `rust`
 
 Example combining the default config with a language preset and fix commits:
 
@@ -98,7 +98,7 @@ Mix and match presets to fit your workflow:
   "extends": [
     "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/default.json",
     "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/patch.json",
-    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/groups/minor.json"
+    "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/commits/patch.json"
   ]
 }
 ```

@@ -2,13 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Group non-major Go module updates",
-      "matchManagers": ["gomod"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "go dependencies",
-      "groupSlug": "go"
-    },
-    {
       "description": "Update Go import paths on major module updates",
       "matchManagers": ["gomod"],
       "postUpdateOptions": ["gomodUpdateImportPaths"]
