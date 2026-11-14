@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Label Rust updates",
+      "matchManagers": ["cargo", "rust-toolchain"],
+      "addLabels": ["rust"]
+    }
+  ]
+}

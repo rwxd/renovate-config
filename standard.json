@@ -5,6 +5,9 @@
         "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/digest.json",
         "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/pin.json",
         "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/patch.json",
-        "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/minor.json"
+        "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/automerge/minor.json",
+        "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/commits/major.json",
+        "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/commits/minor.json",
+        "https://git.chaops.de/rwxd/renovate-config/raw/branch/main/commits/patch.json"
     ]
 }

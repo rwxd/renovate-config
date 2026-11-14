@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Label JavaScript/TypeScript updates",
+      "matchManagers": ["bun", "bun-version", "deno", "meteor", "nodenv", "npm", "nvm"],
+      "addLabels": ["javascript"]
+    }
+  ]
+}

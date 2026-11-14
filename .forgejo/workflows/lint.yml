@@ -15,11 +15,16 @@ jobs:
           node-version: "25"
 
       - name: Install Renovate
-        run: npm install -g renovate
+        run: npm install -g renovate@44
 
       - name: Validate configs
         run: |
+          # Older Renovate versions do not support --no-global.
+          FLAG=""
+          if renovate-config-validator --help 2>&1 | grep -q -- "--no-global"; then
+            FLAG="--no-global"
+          fi
           for file in $(find . -name "*.json" -not -path "./node_modules/*"); do
             echo "Validating $file"
-            renovate-config-validator "$file"
+            renovate-config-validator $FLAG "$file"
           done
