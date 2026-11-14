@@ -23,6 +23,7 @@ npx --yes --package renovate -- renovate-config-validator --no-global <files...>
 ```
 
 - `--no-global` is required; without it files are validated as self-hosted global config.
+- CI's `npm install -g renovate` may resolve an old 37.x whose validator rejects `--no-global`, so `lint.yml` detects flag support before passing it. Use `--no-global` locally.
 - Do not `npm install` in this repo; use `npx` only (CI uses Node 25 + globally installed Renovate).
 - The validator catches unknown keys/options and invalid `packageRules`, but does not prove URL presets resolve.
 
