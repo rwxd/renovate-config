@@ -2,11 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Update Go import paths on major module updates",
-      "matchManagers": ["gomod"],
-      "postUpdateOptions": ["gomodUpdateImportPaths"]
-    },
-    {
       "description": "Label Go module updates",
       "matchManagers": ["gomod"],
       "addLabels": ["go"]

@@ -43,6 +43,7 @@ npx --yes --package renovate -- renovate-config-validator --no-global <files...>
 - Scope language rules with `matchManagers`; custom filenames go in `managerFilePatterns` on the manager object, not the legacy `fileMatch`.
 - `pip_requirements` and `pip_setup` expose no `depType`; dev files must be separated with `matchFileNames` (see `commits/*`).
 - `rangeStrategy` cannot appear in a rule with `matchUpdateTypes` (validator error), and `commitMessagePrefix` disables semantic commits.
+- Go import-path rewriting is opt-in via `languages/go-import-paths.json`; keep it out of `standard.json` (it downloads `mod@latest`, rewrites imports across the repo, forces `go mod tidy`, and forces a PR on artifact failure).
 
 ## Git
 

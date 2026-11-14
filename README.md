@@ -68,12 +68,13 @@ These presets are standalone and can be combined directly with `default.json`. E
 
 ### Languages
 
-Located in `languages/` directory. Per-language presets that add a language label. The Go preset also sets `postUpdateOptions: ["gomodUpdateImportPaths"]` so import paths are updated on major module updates. They deliberately do **not** group updates: with the 14-day `minimumReleaseAge` and strict filtering, grouped PRs stay unmergeable until every dependency has matured.
+Located in `languages/` directory. Per-language presets that add a language label. The Go import-path preset is a separate opt-in. These presets are not part of `standard.json`; extend the ones you need. They deliberately do **not** group updates: with the 14-day `minimumReleaseAge` and strict filtering, grouped PRs stay unmergeable until every dependency has matured.
 
 - **`languages/python`**: Labels Python updates `python`
-- **`languages/go`**: Labels Go module updates `go` and updates import paths on major updates
+- **`languages/go`**: Labels Go module updates `go`
 - **`languages/javascript`**: Labels JavaScript/TypeScript updates `javascript`
 - **`languages/rust`**: Labels Rust crate updates `rust`
+- **`languages/go-import-paths`**: Opt-in; sets `postUpdateOptions: ["gomodUpdateImportPaths"]` so import paths are rewritten on major Go module updates. It downloads `mod@latest`, can touch source files across the repo, forces `go mod tidy` for those updates, and falls back to a PR if the artifact step fails.
 
 Example combining the default config with a language preset and fix commits:
 

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Update Go import paths on major module updates (opt-in: downloads mod@latest, rewrites imports, forces go mod tidy)",
+      "matchManagers": ["gomod"],
+      "postUpdateOptions": ["gomodUpdateImportPaths"]
+    }
+  ]
+}
